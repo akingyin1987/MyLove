@@ -12,7 +12,7 @@
       android:layout_height="wrap_content"
       android:orientation="vertical"
       android:paddingTop="16dp"
-      app:view_behavior=".AnimationLaunch"
+      app:view_behavior="com.akingyin.mylove.ui.behaviours.AnimationLaunch"
       android:clipToPadding="false">
 
     <ImageView
@@ -86,13 +86,14 @@
       android:id="@+id/title"
       android:layout_above="@+id/subtitle"
       android:text="Get more done faster"
-      app:view_behavior=".ParallaxTitleBehaviour" />
+      app:view_behavior="com.akingyin.mylove.ui.behaviours.ParallaxTitleBehaviour" />
 
   <TextView
       style="@style/text_subtitle"
       android:id="@+id/subtitle"
       android:layout_alignParentBottom="true"
       android:text="Easily organize projects \nand delegate work."
-      app:view_behavior=".ParallaxSubtitleBehaviour" />
+
+      app:view_behavior="com.akingyin.mylove.ui.behaviours.ParallaxSubtitleBehaviour" />
 
 </com.redbooth.WelcomePageLayout>

@@ -25,11 +25,11 @@ Contact: Txus Ballesteros <txus.ballesteros@gmail.com>
     style="@style/welcome_page"
     tools:background="@color/page1">
 
-    <com.redbooth.demo.RectangleWithCapCircleView
+    <com.akingyin.mylove.ui.widgets.RectangleWithCapCircleView
         android:id="@+id/semicircle_page4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:view_behavior=".AnimationFillWithColor" />
+        app:view_behavior="com.akingyin.mylove.ui.behaviours.AnimationFillWithColor" />
 
     <ImageView
         android:id="@+id/rocket_page4"

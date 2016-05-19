@@ -13,6 +13,19 @@
       android:supportsRtl="true"
       android:name=".MyLoveApp"
       android:theme="@style/AppTheme">
+    <!-- 配置APP ID -->
+    <meta-data
+        android:name="BUGLY_APPID"
+        android:value="900030944" />
+
+
+    <activity android:name=".ui.WelcomeActivity"
+              android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
 
   </application>
 

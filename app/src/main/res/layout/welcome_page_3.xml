@@ -82,13 +82,13 @@ Contact: Txus Ballesteros <txus.ballesteros@gmail.com>
         android:id="@+id/title"
         android:layout_above="@+id/subtitle"
         android:text="In sync and on track"
-        app:view_behavior=".ParallaxTitleBehaviour" />
+        app:view_behavior="com.akingyin.mylove.ui.behaviours.ParallaxTitleBehaviour" />
 
     <TextView
         style="@style/text_subtitle"
         android:id="@+id/subtitle"
         android:layout_alignParentBottom="true"
         android:text="Visualize progress and notify\nteam members of important\nupdates."
-        app:view_behavior=".ParallaxSubtitleBehaviour" />
+        app:view_behavior="com.akingyin.mylove.ui.behaviours.ParallaxSubtitleBehaviour" />
 
 </com.redbooth.WelcomePageLayout>

@@ -1,6 +1,7 @@
 package com.akingyin.mylove;
 
 import android.app.Application;
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**
@@ -15,9 +16,10 @@ public class MyLoveApp  extends Application {
 
   @Override public void onCreate() {
     super.onCreate();
-    CrashReport.UserStrategy  userStrategy = new CrashReport.UserStrategy(this);
-    userStrategy.setAppChannel("900030944");
-    CrashReport.initCrashReport(this, userStrategy);
+    LeakCanary.install(this);
+
+    CrashReport.initCrashReport(this);
+    CrashReport.setUserId(System.currentTimeMillis()+"test");
 
   }
 
