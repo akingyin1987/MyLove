@@ -37,4 +37,5 @@ dependencies {
   //个人比较喜欢的一个适配器
   compile 'com.github.byteam:SuperAdapter:v3.1'
   compile 'com.android.support:design:23.4.0'
+  compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 }

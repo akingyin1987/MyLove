@@ -29,24 +29,22 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.github.obsessive.library.R;
-import com.github.obsessive.library.eventbus.EventCenter;
-import com.github.obsessive.library.loading.VaryViewHelperController;
-import com.github.obsessive.library.netstatus.NetChangeObserver;
-import com.github.obsessive.library.netstatus.NetStateReceiver;
-import com.github.obsessive.library.netstatus.NetUtils;
-import com.github.obsessive.library.utils.CommonUtils;
-import com.github.obsessive.library.utils.SmartBarUtils;
+import com.akingyin.R;
+import com.akingyin.librarys.loading.VaryViewHelperController;
+import com.akingyin.librarys.netstatus.NetChangeObserver;
+import com.akingyin.librarys.netstatus.NetStateReceiver;
+import com.akingyin.librarys.netstatus.NetUtils;
+import com.akingyin.librarys.utils.CommonUtils;
+import com.akingyin.librarys.utils.SmartBarUtils;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
-
 /**
- * Author:  Tau.Chen
- * Email:   1076559197@qq.com | tauchen1990@gmail.com
- * Date:    2015/3/9.
- * Description:
+ * @ Description:
+ *
+ * Company:重庆中陆承大科技有限公司
+ * @ Author king
+ * @ Date
+ * @ Version V1.0
  */
 public abstract class BaseFragmentActivity extends FragmentActivity {
 
@@ -115,9 +113,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
             getBundleExtras(extras);
         }
 
-        if (isBindEventBusHere()) {
-            EventBus.getDefault().register(this);
-        }
+
         SmartBarUtils.hide(getWindow().getDecorView());
         setTranslucentStatus(isApplyStatusBarTranslucency());
 
@@ -169,7 +165,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.inject(this);
+
         if (null != getLoadingTargetView()) {
             mVaryViewHelperController = new VaryViewHelperController(getLoadingTargetView());
         }
@@ -206,11 +202,9 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.reset(this);
+
         NetStateReceiver.removeRegisterObserver(mNetChangeObserver);
-        if (isBindEventBusHere()) {
-            EventBus.getDefault().unregister(this);
-        }
+
     }
 
     /**
@@ -227,12 +221,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
      */
     protected abstract int getContentViewLayoutID();
 
-    /**
-     * when event comming
-     *
-     * @param eventCenter
-     */
-    protected abstract void onEventComming(EventCenter eventCenter);
+
 
     /**
      * get loading target view
@@ -435,11 +424,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         }
     }
 
-    public void onEventMainThread(EventCenter eventCenter) {
-        if (null != eventCenter) {
-            onEventComming(eventCenter);
-        }
-    }
+
 
     /**
      * use SytemBarTintManager

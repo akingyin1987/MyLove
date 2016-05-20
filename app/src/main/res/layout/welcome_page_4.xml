@@ -25,28 +25,24 @@ Contact: Txus Ballesteros <txus.ballesteros@gmail.com>
     style="@style/welcome_page"
     tools:background="@color/page1">
 
-    <com.akingyin.mylove.ui.widgets.RectangleWithCapCircleView
-        android:id="@+id/semicircle_page4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:view_behavior="com.akingyin.mylove.ui.behaviours.AnimationFillWithColor" />
+  <com.akingyin.mylove.ui.widgets.RectangleWithCapCircleView
+      android:id="@+id/semicircle_page4"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:view_behavior="com.akingyin.mylove.ui.behaviours.AnimationFillWithColor"/>
 
-    <ImageView
-        android:id="@+id/rocket_page4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_rocket_144dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"/>
+  <ImageView
+      android:id="@+id/rocket_page4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_rocket_144dp"
+      android:layout_centerHorizontal="true"
+      android:visibility="invisible"/>
 
-    <TextView
-        android:id="@+id/android_spin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="80dp"
-        android:textSize="30dp"
-        android:text="Welcome Page 4" />
-
+  <android.support.v7.widget.RecyclerView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:divider="#ffff0000"
+      android:dividerHeight="2dp"
+      android:id="@+id/recyclerview"/>
 </com.redbooth.WelcomePageLayout>

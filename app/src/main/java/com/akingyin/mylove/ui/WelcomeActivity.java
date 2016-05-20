@@ -12,6 +12,7 @@ package com.akingyin.mylove.ui;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.akingyin.mylove.R;
+import com.akingyin.mylove.ui.activitys.RecyclerViewActivity;
 import com.akingyin.mylove.ui.animators.ChatAvatarsAnimator;
 import com.akingyin.mylove.ui.animators.InSyncAnimator;
 import com.akingyin.mylove.ui.animators.RocketAvatarsAnimator;
@@ -128,7 +130,9 @@ public class WelcomeActivity extends BaseActivity {
 
   @OnClick(R.id.skip)
   void skip() {
-    coordinatorLayout.setCurrentPage(coordinatorLayout.getNumOfPages() - 1, true);
+    //coordinatorLayout.setCurrentPage(coordinatorLayout.getNumOfPages() - 1, true);
+    Intent   intent  = new Intent(this, RecyclerViewActivity.class);
+    startActivity(intent);
   }
 
   @Override protected void onDestroy() {

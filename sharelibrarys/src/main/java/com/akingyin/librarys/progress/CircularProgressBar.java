@@ -22,8 +22,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-
-import com.github.obsessive.library.R;
+import com.akingyin.R;
 
 /**
  * Created by castorflex on 11/10/13.

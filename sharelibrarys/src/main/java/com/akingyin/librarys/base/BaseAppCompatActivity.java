@@ -33,15 +33,15 @@ import com.akingyin.librarys.loading.VaryViewHelperController;
 import com.akingyin.librarys.netstatus.NetChangeObserver;
 import com.akingyin.librarys.netstatus.NetStateReceiver;
 import com.akingyin.librarys.netstatus.NetUtils;
+import com.akingyin.librarys.utils.CommonUtils;
 import com.akingyin.librarys.utils.SmartBarUtils;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-/**
- * Author:  Tau.Chen
- * Email:   1076559197@qq.com | tauchen1990@gmail.com
- * Date:    2015/3/9.
- * Description:
- */
+
 public abstract class BaseAppCompatActivity extends AppCompatActivity {
+
+
+    public   static   String   TAG="";
 
     /**
      * Log tag
@@ -160,7 +160,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.inject(this);
+
         if (null != getLoadingTargetView()) {
             mVaryViewHelperController = new VaryViewHelperController(getLoadingTargetView());
         }
@@ -197,11 +197,9 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.reset(this);
+
         NetStateReceiver.removeRegisterObserver(mNetChangeObserver);
-        if (isBindEventBusHere()) {
-            EventBus.getDefault().unregister(this);
-        }
+
     }
 
     /**
@@ -218,12 +216,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
      */
     protected abstract int getContentViewLayoutID();
 
-    /**
-     * when event comming
-     *
-     * @param eventCenter
-     */
-    protected abstract void onEventComming(EventCenter eventCenter);
+
 
     /**
      * get loading target view
@@ -280,6 +273,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }
+
 
     /**
      * startActivity with bundle
@@ -354,7 +348,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
      */
     protected void showToast(String msg) {
         //防止遮盖虚拟按键
-        if (null != msg && !CommonUtils.isEmpty(msg)) {
+        if (null != getLoadingTargetView() && null != msg && !CommonUtils.isEmpty(msg)) {
             Snackbar.make(getLoadingTargetView(), msg, Snackbar.LENGTH_SHORT).show();
         }
     }
@@ -427,11 +421,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         }
     }
 
-    public void onEventMainThread(EventCenter eventCenter) {
-        if (null != eventCenter) {
-            onEventComming(eventCenter);
-        }
-    }
+
+
 
     /**
      * use SytemBarTintManager

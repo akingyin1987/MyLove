@@ -20,13 +20,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.github.obsessive.library.R;
-import com.github.obsessive.library.eventbus.EventCenter;
-import com.github.obsessive.library.netstatus.NetUtils;
-import com.github.obsessive.library.utils.CommonUtils;
-import com.github.obsessive.library.widgets.BrowserLayout;
-
-import butterknife.ButterKnife;
+import com.akingyin.R;
+import com.akingyin.librarys.netstatus.NetUtils;
+import com.akingyin.librarys.utils.CommonUtils;
+import com.akingyin.librarys.widgets.BrowserLayout;
 
 /**
  * Author:  Tau.Chen
@@ -34,7 +31,7 @@ import butterknife.ButterKnife;
  * Date:    15/7/24
  * Description:
  */
-public class BaseWebActivity extends BaseSwipeBackCompatActivity {
+public class BaseWebActivity extends BaseAppCompatActivity {
 
     public static final String BUNDLE_KEY_URL = "BUNDLE_KEY_URL";
     public static final String BUNDLE_KEY_TITLE = "BUNDLE_KEY_TITLE";
@@ -59,10 +56,7 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
         return R.layout.activity_common_web;
     }
 
-    @Override
-    protected void onEventComming(EventCenter eventCenter) {
 
-    }
 
     @Override
     protected View getLoadingTargetView() {
@@ -73,8 +67,8 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
     protected void initViewsAndEvents() {
         setSystemBarTintDrawable(getResources().getDrawable(R.drawable.sr_primary));
 
-        mToolBar = ButterKnife.findById(this, R.id.common_toolbar);
-        mBrowserLayout = ButterKnife.findById(this, R.id.common_web_browser_layout);
+        mToolBar = (Toolbar)findViewById(R.id.common_toolbar);
+        mBrowserLayout = (BrowserLayout)findViewById(R.id.common_web_browser_layout);
 
         if (null != mToolBar) {
             setSupportActionBar(mToolBar);
@@ -101,10 +95,6 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
         }
     }
 
-    @Override
-    protected void onNetworkConnected(NetUtils.NetType type) {
-
-    }
 
     @Override
     protected void onNetworkDisConnected() {
@@ -129,5 +119,9 @@ public class BaseWebActivity extends BaseSwipeBackCompatActivity {
     @Override
     protected TransitionMode getOverridePendingTransitionMode() {
         return TransitionMode.RIGHT;
+    }
+
+    @Override protected void onNetworkConnected(NetUtils.NetType type) {
+
     }
 }

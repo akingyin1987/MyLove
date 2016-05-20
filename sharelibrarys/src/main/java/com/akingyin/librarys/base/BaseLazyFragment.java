@@ -29,14 +29,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.obsessive.library.eventbus.EventCenter;
-import com.github.obsessive.library.loading.VaryViewHelperController;
-import com.github.obsessive.library.utils.CommonUtils;
-
+import com.akingyin.librarys.loading.VaryViewHelperController;
+import com.akingyin.librarys.utils.CommonUtils;
 import java.lang.reflect.Field;
 
-import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
 
 /**
  * Author:  Tau.Chen
@@ -86,9 +82,7 @@ public abstract class BaseLazyFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TAG_LOG = this.getClass().getSimpleName();
-        if (isBindEventBusHere()) {
-            EventBus.getDefault().register(this);
-        }
+
     }
 
     @Override
@@ -103,7 +97,6 @@ public abstract class BaseLazyFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this, view);
 
         if (null != getLoadingTargetView()) {
             mVaryViewHelperController = new VaryViewHelperController(getLoadingTargetView());
@@ -122,15 +115,13 @@ public abstract class BaseLazyFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
+
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (isBindEventBusHere()) {
-            EventBus.getDefault().unregister(this);
-        }
+
     }
 
     @Override
@@ -242,12 +233,7 @@ public abstract class BaseLazyFragment extends Fragment {
      */
     protected abstract int getContentViewLayoutID();
 
-    /**
-     * when event comming
-     *
-     * @param eventCenter
-     */
-    protected abstract void onEventComming(EventCenter eventCenter);
+
 
     /**
      * is bind eventBus
@@ -394,9 +380,5 @@ public abstract class BaseLazyFragment extends Fragment {
         }
     }
 
-    public void onEventMainThread(EventCenter eventCenter) {
-        if (null != eventCenter) {
-            onEventComming(eventCenter);
-        }
-    }
+
 }
