@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import com.akingyin.librarys.adapter.BaseViewHolder;
-import com.akingyin.librarys.adapter.IMulItemViewType;
 import com.akingyin.librarys.adapter.OnItemChildClickListener;
 import com.akingyin.librarys.adapter.OnItemClickListener;
 
@@ -144,7 +143,7 @@ implements IViewBindData<T,V>,ILayoutManager{
     @Override
     public int getItemViewType(int position) {
 
-        return position;
+        return 0;
     }
 
 
@@ -153,6 +152,7 @@ implements IViewBindData<T,V>,ILayoutManager{
 
     @Override
     public V onCreateViewHolder(ViewGroup parent, final int viewType) {
+        System.out.println("onCreateViewHolder="+viewType);
         final V holder=onCreate(null, parent, viewType);
         holder.setChildClickListener(onItemChildClickListener);
         if (!(holder.itemView instanceof AdapterView)) {

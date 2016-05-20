@@ -106,10 +106,7 @@ public class BaseWebActivity extends BaseAppCompatActivity {
         return true;
     }
 
-    @Override
-    protected boolean isBindEventBusHere() {
-        return false;
-    }
+
 
     @Override
     protected boolean toggleOverridePendingTransition() {

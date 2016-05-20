@@ -245,12 +245,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
      */
     protected abstract boolean isApplyStatusBarTranslucency();
 
-    /**
-     * is bind eventBus
-     *
-     * @return
-     */
-    protected abstract boolean isBindEventBusHere();
 
     /**
      * toggle overridePendingTransition

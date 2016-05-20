@@ -17,6 +17,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import butterknife.BindView;
@@ -38,7 +39,7 @@ import com.redbooth.WelcomeCoordinatorLayout;
  * @ Date 2016/5/19 15:58
  * @ Version V1.0
  */
-public class WelcomeActivity extends BaseActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
   @BindView(R.id.coordinator) WelcomeCoordinatorLayout coordinatorLayout;
   @BindView(R.id.skip) Button skip;

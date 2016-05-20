@@ -11,12 +11,15 @@
 package com.akingyin.mylove.ui.activitys;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.akingyin.librarys.netstatus.NetUtils;
 import com.akingyin.mylove.R;
 import com.akingyin.mylove.data.model.ItemBean;
 import com.akingyin.mylove.ui.BaseActivity;
@@ -39,9 +42,31 @@ public class RecyclerViewActivity extends BaseActivity {
 
   RecycleAdapter   adapter;
 
-  @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.welcome_page_4);
+
+
+  @Override protected void onDestroy() {
+    super.onDestroy();
+
+  }
+
+  @Override protected boolean isApplyKitKatTranslucency() {
+    return true;
+  }
+
+  @Override protected void getBundleExtras(Bundle extras) {
+
+  }
+
+  @Override protected int getContentViewLayoutID() {
+    return R.layout.welcome_page_4;
+  }
+
+  @Override protected View getLoadingTargetView() {
+    return ButterKnife.findById(this,R.id.rocket_page4);
+  }
+
+  @Override
+  protected void initViewsAndEvents() {
     ButterKnife.bind(this);
     adapter = new RecycleAdapter(this);
     List<ItemBean>  datas = new ArrayList<>();
@@ -54,8 +79,26 @@ public class RecyclerViewActivity extends BaseActivity {
     recyclerview.setAdapter(adapter);
   }
 
-  @Override protected void onDestroy() {
-    super.onDestroy();
+  @Override
+  protected void onNetworkConnected(NetUtils.NetType type) {
 
+  }
+
+  @Override protected void onNetworkDisConnected() {
+
+  }
+
+  @Override protected boolean isApplyStatusBarTranslucency() {
+    return true;
+  }
+
+
+
+  @Override protected boolean toggleOverridePendingTransition() {
+     return true;
+  }
+
+  @Override protected TransitionMode getOverridePendingTransitionMode() {
+    return TransitionMode.LEFT;
   }
 }

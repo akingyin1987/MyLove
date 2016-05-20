@@ -33,13 +33,15 @@ public class RecycleAdapter extends SuperAdapter<ItemBean,ItemviewHolder>{
     super(context);
   }
 
-  @Override public ItemviewHolder onCreate(View convertView, ViewGroup parent, int viewType) {
+  @Override
+  public ItemviewHolder onCreate(View convertView, ViewGroup parent, int viewType) {
       System.out.println("content==="+(null == getContext()));
     return new ItemviewHolder(LayoutInflater.from(getContext()),null);
   }
 
   @Override
   public void onBind(ItemviewHolder holder, int viewType, int layoutPosition, ItemBean item) {
+       System.out.println("onBind====");
        holder.getTvItem().setText(item.itemName);
   }
 }
