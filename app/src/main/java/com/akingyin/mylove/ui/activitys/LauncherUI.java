@@ -10,7 +10,10 @@
 
 package com.akingyin.mylove.ui.activitys;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import com.akingyin.mylove.R;
 
 /**
  * @ Description:
@@ -22,5 +25,9 @@ import android.support.v7.app.AppCompatActivity;
  */
 public class LauncherUI extends AppCompatActivity{
 
-
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+  }
 }

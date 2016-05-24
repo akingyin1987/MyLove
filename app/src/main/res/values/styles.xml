@@ -51,4 +51,10 @@
     <item name="welcomeIndicatorStyle">@style/WelcomeScreenPageIndicator.Custom</item>
     <item name="welcomeTitleTextStyle">@style/WelcomeScreenText.Title.Centered</item>
   </style>
+
+  <!-- 欢迎界面-->
+
+  <style name="WelcomeScreenPageIndicator.Custom">
+    <item name="animated">true</item>
+  </style>
 </resources>

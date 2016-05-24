@@ -16,4 +16,10 @@
   <color name="avatar3">#f8e71d</color>
   <color name="avatar4">#65aa01</color>
   <color name="avatar5">#4ee4c1</color>
+
+  <color name="blue_background">#1976D2</color>
+  <color name="teal_background">#00796B</color>
+  <color name="orange_background">#F57C00</color>
+  <color name="red_background">#D32F2F</color>
+  <color name="purple_background">#7B1FA2</color>
 </resources>
