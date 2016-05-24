@@ -68,4 +68,7 @@ dependencies {
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
   compile 'com.android.support:design:23.4.0'
   compile project(':sharelibrarys')
+
+  //一个欢迎界面
+  compile 'com.stephentuso:welcome:0.7.1'
 }
