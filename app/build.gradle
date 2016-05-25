@@ -71,4 +71,7 @@ dependencies {
 
   //一个欢迎界面
   compile 'com.stephentuso:welcome:0.7.1'
+  compile('com.mikepenz:materialdrawer:5.0.8@aar') {
+    transitive = true
+  }
 }

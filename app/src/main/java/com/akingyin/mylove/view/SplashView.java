@@ -8,25 +8,23 @@
  * QQ:153865235
  */
 
-package com.akingyin.mylove.presenter;
+package com.akingyin.mylove.view;
+
+import android.view.animation.Animation;
 
 /**
  * @ Description:
  *
  * Company:重庆中陆承大科技有限公司
  * @ Author king
- * @ Date 2016/5/25 11:46
+ * @ Date 2016/5/25 11:59
  * @ Version V1.0
  */
-public interface Presenter<V> {
+public interface SplashView  extends  MvpView {
 
-  void attachView(V view);
+  void animateBackgroundImage(Animation animation);
 
-  void detachView();
+  void initializeViews(String versionName,String copyright,int backgroundResId);
 
-  void initialized();
-
-  void onPause();
-
-  void onResume();
+  void navigateToHomePage();
 }

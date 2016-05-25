@@ -10,23 +10,17 @@
 
 package com.akingyin.mylove.presenter;
 
+import com.akingyin.mylove.view.SplashView;
+
 /**
  * @ Description:
  *
  * Company:重庆中陆承大科技有限公司
  * @ Author king
- * @ Date 2016/5/25 11:46
+ * @ Date 2016/5/25 17:36
  * @ Version V1.0
  */
-public interface Presenter<V> {
+public interface ISplashPresenter extends Presenter<SplashView>{
 
-  void attachView(V view);
 
-  void detachView();
-
-  void initialized();
-
-  void onPause();
-
-  void onResume();
 }

@@ -8,25 +8,43 @@
  * QQ:153865235
  */
 
-package com.akingyin.mylove.presenter;
+package com.akingyin.mylove.presenter.impl;
+
+import com.akingyin.mylove.presenter.ISplashPresenter;
+import com.akingyin.mylove.view.SplashView;
 
 /**
  * @ Description:
  *
  * Company:重庆中陆承大科技有限公司
  * @ Author king
- * @ Date 2016/5/25 11:46
+ * @ Date 2016/5/25 17:41
  * @ Version V1.0
  */
-public interface Presenter<V> {
+public class SplashPresenterImpl   implements ISplashPresenter {
 
-  void attachView(V view);
+  private    SplashView   view;
 
-  void detachView();
+  @Override
+  public void attachView(SplashView view) {
+    this.view = view;
+  }
 
-  void initialized();
+  @Override
+  public void detachView() {
 
-  void onPause();
+  }
 
-  void onResume();
+  @Override
+  public void initialized() {
+
+  }
+
+  @Override public void onPause() {
+
+  }
+
+  @Override public void onResume() {
+
+  }
 }

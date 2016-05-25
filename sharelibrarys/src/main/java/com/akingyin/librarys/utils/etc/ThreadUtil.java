@@ -8,25 +8,25 @@
  * QQ:153865235
  */
 
-package com.akingyin.mylove.presenter;
+package com.akingyin.librarys.utils.etc;
+
+import android.os.Looper;
 
 /**
  * @ Description:
  *
  * Company:重庆中陆承大科技有限公司
  * @ Author king
- * @ Date 2016/5/25 11:46
+ * @ Date 2016/5/25 18:17
  * @ Version V1.0
  */
-public interface Presenter<V> {
+public class ThreadUtil {
 
-  void attachView(V view);
-
-  void detachView();
-
-  void initialized();
-
-  void onPause();
-
-  void onResume();
+  /**
+   * 判断当前线程是否是主线程（UI线程）
+   * @return
+   */
+  public static boolean isMain() {
+    return Looper.myLooper() == Looper.getMainLooper();
+  }
 }
