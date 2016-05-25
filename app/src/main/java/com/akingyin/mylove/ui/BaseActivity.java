@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import butterknife.ButterKnife;
+
+import com.akingyin.librarys.KissTools;
 import com.akingyin.librarys.base.BaseAppCompatActivity;
 import com.akingyin.mylove.R;
 import com.akingyin.mylove.base.AppManager;
@@ -26,6 +28,7 @@ public  abstract class BaseActivity extends BaseAppCompatActivity implements Bas
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    KissTools.setContext(this);
     if (isApplyKitKatTranslucency()) {
       setSystemBarTintDrawable(getResources().getDrawable(R.drawable.sr_primary));
     }

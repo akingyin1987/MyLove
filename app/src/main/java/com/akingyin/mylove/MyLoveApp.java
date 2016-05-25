@@ -1,6 +1,9 @@
 package com.akingyin.mylove;
 
 import android.app.Application;
+
+import com.akingyin.librarys.KissTools;
+import com.akingyin.librarys.utils.preferences.PreferencesUtil;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -17,7 +20,8 @@ public class MyLoveApp  extends Application {
   @Override public void onCreate() {
     super.onCreate();
     LeakCanary.install(this);
-
+    KissTools.setContext(this);
+    PreferencesUtil.setDefaultName("love_info");
     CrashReport.initCrashReport(this);
     CrashReport.setUserId(System.currentTimeMillis()+"test");
 

@@ -17,6 +17,7 @@ import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
 import com.akingyin.librarys.Base;
+import com.akingyin.librarys.KissTools;
 import com.akingyin.librarys.utils.etc.APILevel;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -42,7 +43,7 @@ public class PreferencesUtil {
   private static String defaultName = PreferencesUtil.class.getCanonicalName();
 
   private static SharedPreferences getPreferences(String name) {
-    return Base.getContext().getSharedPreferences(name, Context.MODE_PRIVATE);
+    return KissTools.getApplicationContext().getSharedPreferences(name, Context.MODE_PRIVATE);
   }
 
 

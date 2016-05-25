@@ -25,7 +25,7 @@ import com.akingyin.mylove.ui.BaseActivity;
  * @ Date 2016/5/25 12:03
  * @ Version V1.0
  */
-public class HomeActivity   extends BaseActivity{
+public class HomeActivity   extends BaseActivity {
 
   @Override
   protected boolean isApplyKitKatTranslucency() {

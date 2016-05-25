@@ -10,13 +10,20 @@
 
 package com.akingyin.mylove.ui.activitys;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Toast;
+
+import com.akingyin.librarys.utils.preferences.PreferencesUtil;
 import com.akingyin.mylove.R;
+import com.akingyin.mylove.presenter.ISplashPresenter;
+import com.akingyin.mylove.presenter.impl.SplashPresenterImpl;
+import com.akingyin.mylove.view.SplashView;
 import com.stephentuso.welcome.WelcomeScreenHelper;
 import com.stephentuso.welcome.ui.WelcomeActivity;
 
@@ -28,15 +35,20 @@ import com.stephentuso.welcome.ui.WelcomeActivity;
  * @ Date 2016/5/24 10:32
  * @ Version V1.0
  */
-public class LauncherUI extends AppCompatActivity{
+public class LauncherUI extends AppCompatActivity implements SplashView{
+
+
 
   WelcomeScreenHelper welcomeScreen;
+
+  private ISplashPresenter   presenter;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
+    setContentView(R.layout.activity_splash);
+    presenter = new SplashPresenterImpl();
+    presenter.attachView(this);
     welcomeScreen = new WelcomeScreenHelper(this, MyWelcomeActivity.class);
     welcomeScreen.show(savedInstanceState);
 
@@ -78,5 +90,25 @@ public class LauncherUI extends AppCompatActivity{
 
   @Override protected void onResume() {
     super.onResume();
+  }
+
+  @Override
+  public void animateBackgroundImage(Animation animation) {
+
+  }
+
+  @Override
+  public void initializeViews(String versionName, String copyright, int backgroundResId) {
+
+  }
+
+  @Override
+  public void navigateToHomePage() {
+
+  }
+
+  @Override
+  public Context getContext() {
+    return null;
   }
 }
