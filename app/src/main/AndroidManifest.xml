@@ -19,7 +19,7 @@
         android:value="900030944" />
 
 
-    <activity android:name=".ui.WelcomeActivity"
+    <activity android:name=".ui.activitys.LauncherUI"
               android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -27,6 +27,7 @@
       </intent-filter>
     </activity>
 
+    <activity android:name=".ui.activitys.MyWelcomeActivity"/>
     <activity android:name=".ui.activitys.RecyclerViewActivity"/>
 
   </application>
